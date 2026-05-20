@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Production|ARM64">
+      <Configuration>Production</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Production|x64">
+      <Configuration>Production</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM64">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM64">
+      <Configuration>Release</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="VmProduction|ARM64">
+      <Configuration>VmProduction</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="VmProduction|x64">
+      <Configuration>VmProduction</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{BC82B964-C056-07E6-0283-9067F67522B5}</ProjectGuid>
+    <TemplateGuid>{1bc93793-694f-48fe-9372-81e2b05556fd}</TemplateGuid>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <Configuration>Debug</Configuration>
+    <Platform Condition="'$(Platform)' == ''">x64</Platform>
+    <RootNamespace>GIHF</RootNamespace>
+    <WindowsTargetPlatformVersion>$(LatestTargetPlatformVersion)</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <TargetVersion>Windows10</TargetVersion>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+    <ConfigurationType>Driver</ConfigurationType>
+    <DriverType>KMDF</DriverType>
+    <DriverTargetPlatform>Universal</DriverTargetPlatform>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <TargetVersion>Windows10</TargetVersion>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+    <ConfigurationType>Driver</ConfigurationType>
+    <DriverType>KMDF</DriverType>
+    <DriverTargetPlatform>Universal</DriverTargetPlatform>
+    <Driver_SpectreMitigation>Spectre</Driver_SpectreMitigation>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Production|x64'" Label="Configuration">
+    <TargetVersion>Windows10</TargetVersion>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+    <ConfigurationType>Driver</ConfigurationType>
+    <DriverType>KMDF</DriverType>
+    <DriverTargetPlatform>Universal</DriverTargetPlatform>
+    <Driver_SpectreMitigation>Spectre</Driver_SpectreMitigation>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='VmProduction|x64'" Label="Configuration">
+    <TargetVersion>Windows10</TargetVersion>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+    <ConfigurationType>Driver</ConfigurationType>
+    <DriverType>KMDF</DriverType>
+    <DriverTargetPlatform>Universal</DriverTargetPlatform>
+    <Driver_SpectreMitigation>Spectre</Driver_SpectreMitigation>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'" Label="Configuration">
+    <TargetVersion>Windows10</TargetVersion>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+    <ConfigurationType>Driver</ConfigurationType>
+    <DriverType>KMDF</DriverType>
+    <DriverTargetPlatform>Universal</DriverTargetPlatform>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'" Label="Configuration">
+    <TargetVersion>Windows10</TargetVersion>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+    <ConfigurationType>Driver</ConfigurationType>
+    <DriverType>KMDF</DriverType>
+    <DriverTargetPlatform>Universal</DriverTargetPlatform>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Production|ARM64'" Label="Configuration">
+    <TargetVersion>Windows10</TargetVersion>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+    <ConfigurationType>Driver</ConfigurationType>
+    <DriverType>KMDF</DriverType>
+    <DriverTargetPlatform>Universal</DriverTargetPlatform>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='VmProduction|ARM64'" Label="Configuration">
+    <TargetVersion>Windows10</TargetVersion>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+    <ConfigurationType>Driver</ConfigurationType>
+    <DriverType>KMDF</DriverType>
+    <DriverTargetPlatform>Universal</DriverTargetPlatform>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
+    <EnableInf2cat>false</EnableInf2cat>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Production|x64'">
+    <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
+    <EnableInf2cat>false</EnableInf2cat>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='VmProduction|x64'">
+    <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
+    <EnableInf2cat>false</EnableInf2cat>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Production|ARM64'">
+    <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='VmProduction|ARM64'">
+    <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <DriverSign>
+      <FileDigestAlgorithm>sha256</FileDigestAlgorithm>
+    </DriverSign>
+    <ClCompile>
+      <PreprocessorDefinitions>_MSC_EXTENSIONS;_WIN64;_AMD64_;AMD64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <DriverSign>
+      <FileDigestAlgorithm>sha256</FileDigestAlgorithm>
+    </DriverSign>
+    <ClCompile>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <ClCompile>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)src\core;$(ProjectDir)src\includes;$(ProjectDir)src\includes\structs;$(ProjectDir)src\extern;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PreprocessToFile>false</PreprocessToFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <PreprocessorDefinitions>_WIN64;_AMD64_;AMD64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Inf>
+      <SpecifyArchitecture>false</SpecifyArchitecture>
+    </Inf>
+    <Link>
+      <EntryPointSymbol>DriverEntry</EntryPointSymbol>
+      <Driver>WDM</Driver>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Production|x64'">
+    <DriverSign>
+      <FileDigestAlgorithm>sha256</FileDigestAlgorithm>
+    </DriverSign>
+    <ClCompile>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <ClCompile>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)src\core;$(ProjectDir)src\includes;$(ProjectDir)src\includes\structs;$(ProjectDir)src\extern;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PreprocessToFile>false</PreprocessToFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <PreprocessorDefinitions>_PRODUCTION;_WIN64;_AMD64_;AMD64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WppMinimalRebuildFromTracking>false</WppMinimalRebuildFromTracking>
+    </ClCompile>
+    <Inf>
+      <SpecifyArchitecture>false</SpecifyArchitecture>
+    </Inf>
+    <Link>
+      <EntryPointSymbol>DriverEntry</EntryPointSymbol>
+      <Driver>WDM</Driver>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='VmProduction|x64'">
+    <DriverSign>
+      <FileDigestAlgorithm>sha256</FileDigestAlgorithm>
+    </DriverSign>
+    <ClCompile>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <ClCompile>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)src\core;$(ProjectDir)src\includes;$(ProjectDir)src\includes\structs;$(ProjectDir)src\extern;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PreprocessToFile>false</PreprocessToFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <PreprocessorDefinitions>_VM;_PRODUCTION;_WIN64;_AMD64_;AMD64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WppMinimalRebuildFromTracking>false</WppMinimalRebuildFromTracking>
+    </ClCompile>
+    <Inf>
+      <SpecifyArchitecture>false</SpecifyArchitecture>
+    </Inf>
+    <Link>
+      <EntryPointSymbol>DriverEntry</EntryPointSymbol>
+      <Driver>WDM</Driver>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <DriverSign>
+      <FileDigestAlgorithm>sha256</FileDigestAlgorithm>
+    </DriverSign>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Production|ARM64'">
+    <DriverSign>
+      <FileDigestAlgorithm>sha256</FileDigestAlgorithm>
+    </DriverSign>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='VmProduction|ARM64'">
+    <DriverSign>
+      <FileDigestAlgorithm>sha256</FileDigestAlgorithm>
+    </DriverSign>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <DriverSign>
+      <FileDigestAlgorithm>sha256</FileDigestAlgorithm>
+    </DriverSign>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <FilesToPackage Include="$(TargetPath)" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\includes\Log.h" />
+    <ClInclude Include="src\includes\Memory.h" />
+    <ClInclude Include="src\includes\exit_handlers.h" />
+    <ClInclude Include="src\includes\VmxApicConfig.h" />
+    <ClInclude Include="src\includes\VmxEptControls.h" />
+    <ClInclude Include="src\includes\VmxIsrConfig.h" />
+    <ClInclude Include="src\includes\VmxMsrConfig.h" />
+    <ClInclude Include="src\includes\VmxMtrrConfig.h" />
+    <ClInclude Include="src\includes\VmxOperationPacket.h" />
+    <ClInclude Include="src\includes\VmxPrerequisites.h" />
+    <ClInclude Include="src\extern\ia32.h" />
+    <ClInclude Include="src\includes\VmxUtils.h" />
+    <ClInclude Include="src\includes\VmxVmcsConfig.h" />
+    <ClInclude Include="src\includes\VmxVmmConfig.h" />
+    <ClInclude Include="src\stdafx.h" />
+    <ClInclude Include="src\includes\structs\segmentation.h" />
+    <ClInclude Include="src\includes\structs\vmexit_structs.h" />
+    <ClInclude Include="src\includes\structs\VmxDefinitions.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\core\Log.cpp" />
+    <ClCompile Include="src\core\Memory.cpp" />
+    <ClCompile Include="src\core\vmexit_handlers\communication_handler.cpp" />
+    <ClCompile Include="src\core\vmexit_handlers\control_register_handler.cpp" />
+    <ClCompile Include="src\core\vmexit_handlers\cpuid_handler.cpp" />
+    <ClCompile Include="src\core\vmexit_handlers\ept_violation_handler.cpp" />
+    <ClCompile Include="src\core\vmexit_handlers\event_injection_handler.cpp" />
+    <ClCompile Include="src\core\vmexit_handlers\external_interrupt_handler.cpp" />
+    <ClCompile Include="src\core\vmexit_handlers\main_handler.cpp" />
+    <ClCompile Include="src\core\vmexit_handlers\msr_handler.cpp" />
+    <ClCompile Include="src\core\vmexit_handlers\nmi_handler.cpp" />
+    <ClCompile Include="src\core\vmexit_handlers\vmx_generic_handler.cpp" />
+    <ClCompile Include="src\core\vmexit_handlers\xsetbv_handler.cpp" />
+    <ClCompile Include="src\core\VmxIsrConfig.cpp" />
+    <ClCompile Include="src\core\VmxPrerequisites.cpp" />
+    <ClCompile Include="src\core\VmxVmcsConfig.cpp" />
+    <ClCompile Include="src\core\VmxMsrConfig.cpp" />
+    <ClCompile Include="src\core\VmxVmmConfig.cpp" />
+    <ClCompile Include="src\core\VmxEptControls.cpp" />
+    <ClCompile Include="src\core\VmxApicConfig.cpp" />
+    <ClCompile Include="src\core\VmxUtils.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Production|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='VmProduction|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="src\core\assembly\vmxisr.asm" />
+    <MASM Include="src\core\assembly\vmxproc.asm" />
+    <MASM Include="src\core\assembly\vmxsetup.asm" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
+  </ImportGroup>
+</Project>
